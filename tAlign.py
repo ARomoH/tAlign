@@ -27,9 +27,9 @@ cx, cy = width / 2, height / 2
 new_image = np.zeros(data.shape)
 for x, row in enumerate(data):
     for y, value in enumerate(row):
-        xp = cx + (x - cx) * cos_theta - (y - cy) * sin_theta
-        yp = cy + (x - cx) * sin_theta + (y - cy) * cos_theta
-        if xp < 0 or yp < 0 or xp > width or yp > height:
+        xp = int(cx + (x - cx) * cos_theta - (y - cy) * sin_theta)
+        yp = int(cy + (x - cx) * sin_theta + (y - cy) * cos_theta)
+        if xp < 0 or yp < 0 or xp >= width or yp >= height:
             continue
         new_image[xp, yp] = data[x, y]
 
